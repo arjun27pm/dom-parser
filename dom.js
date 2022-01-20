@@ -27,7 +27,7 @@ const showTable = (xmlRes) => {
     state.xmlDocObj = xmlRes;
     let table;
     table = `<tr style='background:#36304a;color:#fff;'>
-        <th>Member Id</th>
+        <th>Client Id</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>client address</th>
