@@ -1,6 +1,6 @@
 const state = {
     xmlDocObj:null,
-    nodes:['clientId','FirstName','LastName','client address','MobileNumber','Email']
+    nodes:['clientId','FirstName','LastName','clientaddress','MobileNumber','Email']
 }
 
 
@@ -42,7 +42,7 @@ const showTable = (xmlRes) => {
             <td>${xmlRes.getElementsByTagName("clientId")[i].childNodes[0].nodeValue}</td>
             <td>${xmlRes.getElementsByTagName("FirstName")[i].childNodes[0].nodeValue}</td>
             <td>${xmlRes.getElementsByTagName("LastName")[i].childNodes[0].nodeValue}</td>
-            <td>${xmlRes.getElementsByTagName("client address")[i].childNodes[0].nodeValue}</td>
+            <td>${xmlRes.getElementsByTagName("clientaddress")[i].childNodes[0].nodeValue}</td>
             <td>${xmlRes.getElementsByTagName("MobileNumber")[i].childNodes[0].nodeValue}</td>
             <td>${xmlRes.getElementsByTagName("Email")[i].childNodes[0].nodeValue}</td>
             <td id='edit_delete_cont_${i}'>
@@ -57,7 +57,7 @@ const showTable = (xmlRes) => {
             </tr>
         </form>`;
     }
-    document.getElementById("client_table").innerHTML = table;
+    document.getElementById("member_table").innerHTML = table;
 }
 
 const removeNode = (id) => {
@@ -72,10 +72,10 @@ const changeNode = (id) => {
     document.getElementById("form_cont").classList.toggle('hide');
     const form = document.getElementById("changeForm");
     let formElem = `
-    <input disabled class='input_fields' type='text' placeholder='clientId' value='${state.xmlDocObj.getElementsByTagName("clientId")[id].childNodes[0].nodeValue}'/>
+    <input disabled class='input_fields' type='text' placeholder='ClientId' value='${state.xmlDocObj.getElementsByTagName("clientId")[id].childNodes[0].nodeValue}'/>
     <input class='input_fields' type='text' placeholder='First Name' value='${state.xmlDocObj.getElementsByTagName("FirstName")[id].childNodes[0].nodeValue}'/>
     <input class='input_fields' type='text' placeholder='Last Name' value='${state.xmlDocObj.getElementsByTagName("LastName")[id].childNodes[0].nodeValue}'/>
-    <input class='input_fields' type='text' placeholder='client address' value='${state.xmlDocObj.getElementsByTagName("client address")[id].childNodes[0].nodeValue}'/>
+    <input class='input_fields' type='text' placeholder='Client address' value='${state.xmlDocObj.getElementsByTagName("clientaddress")[id].childNodes[0].nodeValue}'/>
     <input class='input_fields' type='text' placeholder='Mobile Number' value='${state.xmlDocObj.getElementsByTagName("MobileNumber")[id].childNodes[0].nodeValue}'/>
     <input class='input_fields' type='text' placeholder='Email' value='${state.xmlDocObj.getElementsByTagName("Email")[id].childNodes[0].nodeValue}'/>
     <div class='btn_cont'>
@@ -96,7 +96,7 @@ const submitFormHandler = (id) => {
     state.xmlDocObj.getElementsByTagName("clientId")[id].childNodes[0].nodeValue = inputFields[0].value;
     state.xmlDocObj.getElementsByTagName("FirstName")[id].childNodes[0].nodeValue = inputFields[2].value;
     state.xmlDocObj.getElementsByTagName("LastName")[id].childNodes[0].nodeValue = inputFields[3].value;
-    state.xmlDocObj.getElementsByTagName("client address")[id].childNodes[0].nodeValue = inputFields[4].value;
+    state.xmlDocObj.getElementsByTagName("clientaddress")[id].childNodes[0].nodeValue = inputFields[4].value;
     state.xmlDocObj.getElementsByTagName("MobileNumber")[id].childNodes[0].nodeValue = inputFields[5].value;
     state.xmlDocObj.getElementsByTagName("Email")[id].childNodes[0].nodeValue = inputFields[6].value;
     console.log(inputFields[0].value)
@@ -134,7 +134,7 @@ const addNewFormHandler = () => {
 const addNewNodeHandler = () => {
     event.preventDefault();
     const inputFields = document.getElementsByClassName("input_fields");
-    const newnode = state.xmlDocObj.createElement("Member")
+    const newnode = state.xmlDocObj.createElement("client")
     state.nodes.map((el,i) => {
         let newTitle = state.xmlDocObj.createElement(el)
         let newText = state.xmlDocObj.createTextNode(inputFields[i].value)
