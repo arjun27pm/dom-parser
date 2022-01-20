@@ -12,7 +12,6 @@ html,body{
 
 .main-container{
     background: #DC143C;
-    background: radial-gradient(circle, #DC143C, #DC143C);
     padding-bottom: 50px;
 }
 
